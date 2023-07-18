@@ -25,7 +25,7 @@ const protectUserRoutes = (req, res, next) => {
     try {
        const decodedToken = jwt.verify(token,JWT_SECRET);
        const userId = decodedToken.userId;
-       if(req.param.id!=userId){
+       if(req.params.id !== userId){
           return res.status(403).json({
             message:'Access Denied',
             status:'error'
